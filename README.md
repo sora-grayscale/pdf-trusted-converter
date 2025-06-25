@@ -109,31 +109,32 @@ sudo mv pdf-trusted-converter.sh /usr/local/bin/pdf-trusted-converter
 
 ### Batch process multiple PDFs
 
-````bash
+```bash
 # Create a simple loop for multiple files
 for pdf in *.pdf; do
     ./pdf-trusted-converter.sh --batch "$pdf"
     done
-    ```
+```
 
 ### High-quality conversion for documents with small text
-    ```bash
-    ./pdf-trusted-converter.sh -d 600 technical_document.pdf readable_output.pdf
-    ```
+
+```bash
+./pdf-trusted-converter.sh -d 600 technical_document.pdf readable_output.pdf
+```
 
 ## How It Works
 
-    1. **Dependency Check**: Verifies that ImageMagick and Ghostscript are installed
-    2. **PDF to Images**: Converts each PDF page to high-resolution PNG images
-    3. **Image to PDF**: Reconstructs a new PDF from the generated images
-    4. **Optimization**: Uses Ghostscript to optimize the final PDF file
-    5. **Cleanup**: Automatically removes temporary files
+1. **Dependency Check**: Verifies that ImageMagick and Ghostscript are installed
+2. **PDF to Images**: Converts each PDF page to high-resolution PNG images
+3. **Image to PDF**: Reconstructs a new PDF from the generated images
+4. **Optimization**: Uses Ghostscript to optimize the final PDF file
+5. **Cleanup**: Automatically removes temporary files
 
 ## Output Information
 
-    The script provides detailed information about the conversion process:
+The script provides detailed information about the conversion process:
 
-    ```
+```txt
     [INFO] Converting PDF to trusted format...
     [INFO] Input: document.pdf
     [INFO] Output: document.trusted.pdf
@@ -149,98 +150,101 @@ for pdf in *.pdf; do
     [INFO]   - Pages processed: 15
     [INFO]   - DPI used: 300
     [WARNING] Note: Text is now embedded as images and cannot be selected or searched.
-    ```
+```
 
 ## Use Cases
 
-    - **Email attachments**: Sanitize PDFs received via email
-    - **Downloaded documents**: Clean PDFs from untrusted sources
-    - **Forensic analysis**: Create safe copies of potentially malicious documents
-    - **Compliance**: Meet security requirements for document processing
-    - **Air-gapped systems**: Prepare documents for secure environments
+- **Email attachments**: Sanitize PDFs received via email
+- **Downloaded documents**: Clean PDFs from untrusted sources
+- **Forensic analysis**: Create safe copies of potentially malicious documents
+- **Compliance**: Meet security requirements for document processing
+- **Air-gapped systems**: Prepare documents for secure environments
 
 ## Performance Considerations
 
-    - **DPI vs File Size**: Higher DPI results in larger files but better quality
-    - **Memory Usage**: Large PDFs may require significant temporary disk space
-    - **Processing Time**: Conversion time scales with document size and DPI
+- **DPI vs File Size**: Higher DPI results in larger files but better quality
+- **Memory Usage**: Large PDFs may require significant temporary disk space
+- **Processing Time**: Conversion time scales with document size and DPI
 
 ### Recommended DPI Settings
 
-    | Use Case | DPI | Quality | File Size |
-    |----------|-----|---------|-----------|
-    | Text documents | 150-200 | Good | Small |
-    | General use | 300 | Excellent | Medium |
-    | High-quality images | 450-600 | Premium | Large |
+| Use Case            | DPI     | Quality   | File Size |
+| ------------------- | ------- | --------- | --------- |
+| Text documents      | 150-200 | Good      | Small     |
+| General use         | 300     | Excellent | Medium    |
+| High-quality images | 450-600 | Premium   | Large     |
 
 ## Troubleshooting
 
 ### Common Issues
 
-    **"Command not found" errors:**
-    ```bash
+**"Command not found" errors:**
+
+```bash
 # Install missing dependencies
-    brew install imagemagick ghostscript
-    ```
+brew install imagemagick ghostscript
+```
 
-    **"No images were generated" error:**
-    - The input file may be corrupted
-    - Try with a different PDF file
-    - Check if the PDF is password-protected
+**"No images were generated" error:**
 
-    **Out of disk space:**
-    - Large PDFs generate many temporary files
-    - Ensure sufficient disk space in `/tmp`
-    - Consider using lower DPI settings
+- The input file may be corrupted
+- Try with a different PDF file
+- Check if the PDF is password-protected
 
-    **Permission denied:**
-    ```bash
-    chmod +x pdf-trusted-converter.sh
-    ```
+**Out of disk space:**
+
+- Large PDFs generate many temporary files
+- Ensure sufficient disk space in `/tmp`
+- Consider using lower DPI settings
+
+**Permission denied:**
+
+```bash
+chmod +x pdf-trusted-converter.sh
+```
 
 ### Debug Mode
 
-    Use verbose mode to see detailed command execution:
-    ```bash
-    ./pdf-trusted-converter.sh -v document.pdf
-    ```
+Use verbose mode to see detailed command execution:
+
+```bash
+./pdf-trusted-converter.sh -v document.pdf
+```
 
 ## Security Considerations
 
-    This tool is designed to neutralize potentially malicious PDFs, but it should be used as part of a comprehensive security strategy:
+This tool is designed to neutralize potentially malicious PDFs, but it should be used as part of a comprehensive security strategy:
 
-    - Always scan files with antivirus software
-    - Use in combination with other security tools
-    - Test with known-good files first
-    - Consider using in isolated environments for highly suspicious files
+- Always scan files with antivirus software
+- Use in combination with other security tools
+- Test with known-good files first
+- Consider using in isolated environments for highly suspicious files
 
 ## Limitations
 
-    - Text becomes non-searchable and non-selectable
-    - Interactive elements are completely removed
-    - Some visual elements may be slightly degraded
-    - File sizes typically increase
-    - Accessibility features are lost
+- Text becomes non-searchable and non-selectable
+- Interactive elements are completely removed
+- Some visual elements may be slightly degraded
+- File sizes typically increase
+- Accessibility features are lost
 
 ## Contributing
 
-    Contributions are welcome! Please feel free to submit pull requests or open issues for:
+Contributions are welcome! Please feel free to submit pull requests or open issues for:
 
-    - Bug fixes
-    - Feature enhancements
-    - Documentation improvements
-    - Platform compatibility
+- Bug fixes
+- Feature enhancements
+- Documentation improvements
+- Platform compatibility
 
 ## License
 
-    This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
-    - Inspired by Qubes OS's `qvm-convert-pdf` utility
-    - Built using ImageMagick and Ghostscript
-    - Thanks to the open-source security community
+- Inspired by Qubes OS's `qvm-convert-pdf` utility
+- Built using ImageMagick and Ghostscript
+- Thanks to the open-source security community
 
-    **⚠️ Important**: This tool converts text to images, making it non-selectable. Use only when security is prioritized over text accessibility.
-
-````
+**⚠️ Important**: This tool converts text to images, making it non-selectable. Use only when security is prioritized over text accessibility.
