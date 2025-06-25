@@ -14,11 +14,11 @@ A shell script for macOS that converts PDFs to a "trusted" format by converting 
 
 ## Security Benefits
 
-✅ **Removes malicious JavaScript**
-✅ **Eliminates embedded files and attachments**
-✅ **Strips out interactive forms**
-✅ **Removes hyperlinks and actions**
-✅ **Neutralizes potential exploits**
+- ✅ **Removes malicious JavaScript**
+- ✅ **Eliminates embedded files and attachments**
+- ✅ **Strips out interactive forms**
+- ✅ **Removes hyperlinks and actions**
+- ✅ **Neutralizes potential exploits**
 
 ⚠️ **Trade-offs:**
 
@@ -41,7 +41,7 @@ brew install imagemagick ghostscript
 1. Download the script:
 
 ```bash
-curl -O https://raw.githubusercontent.com/tmp_user_name/pdf-trusted-converter/main/pdf-trusted-converter.sh
+curl -O https://raw.githubusercontent.com/sora-grayscale/pdf-trusted-converter/main/pdf-trusted-converter.sh
 ```
 
 2. Make it executable:
