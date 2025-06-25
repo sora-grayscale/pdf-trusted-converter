@@ -112,8 +112,8 @@ sudo mv pdf-trusted-converter.sh /usr/local/bin/pdf-trusted-converter
 ```bash
 # Create a simple loop for multiple files
 for pdf in *.pdf; do
-    ./pdf-trusted-converter.sh --batch "$pdf"
-    done
+  ./pdf-trusted-converter.sh --batch "$pdf"
+done
 ```
 
 ### High-quality conversion for documents with small text
